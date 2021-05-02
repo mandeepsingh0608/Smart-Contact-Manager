@@ -1,0 +1,149 @@
+body{
+background:  #F3F2F1 !important;
+}
+.navbar-nav{
+position:absolute;
+right:10px;
+}
+.bg-primary{
+ background: #008688 !important
+
+}
+.banner{
+width:100%;
+height:93vh;
+background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)), url(https://media.istockphoto.com/photos/beautiful-asian-business-woman-is-looking-at-her-smartphone-and-very-picture-id1224013294?s=612x612);
+background-repeat: no-repeat;
+background-size:cover;
+background-position: center;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.mycard{
+padding:20px;
+background:#ffffff;
+}
+.container2{
+padding:20px;
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 50px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+
+/*side bar style*/
+
+@media only screen and (max-width:600px){
+.sidebar{
+display:none;
+width:80% !important;
+background:white;
+height:100vh;
+position:fixed;
+padding-top:20px;
+}
+.content{
+margin-left:0%!important;
+}
+
+
+}
+
+
+
+.sidebar{
+
+width:18%;
+background:white;
+height:100%;
+position:fixed;
+padding-top:45px;
+
+}
+.sidebar a{
+ display:block;
+ width:100%;
+ padding:10px 25px;
+ text-decoration:none;
+ color:gray;
+}
+
+.sidebar a:hover{
+background:#a9a9a9;
+color:white;
+
+}
+.sidebar .divider{
+height:.5px;
+width:100%;
+background:#e2e2e2;
+margin-top:10px;
+
+}
+.sidebar .crossbtn{
+position: absolute;
+top:0;
+right:35px;
+font-size:36px;
+cursor: pointer;
+
+}
+
+
+
+/*content style*/
+
+.content{
+
+ margin-left:20%;
+
+}
+
+.myprofilepicture{
+width:35px;
+height:35px;
+object-fit:cover;
+border-radius:50%;
+border:1px solid black;
+}
+
+.personalpic{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:50%;
+border:1px solid black;
+}
+.bold{
+font-size:30px;
+font:bold;
+
+}
+.detail .des{
+font-size: 30px bold;
+}
+/*search css*/
+.search-container{
+position: relative;
+}
+.search-result{
+position:absolute;
+background:white;
+padding:10px;
+border:1px solid gray;
+display:none;
+}
+

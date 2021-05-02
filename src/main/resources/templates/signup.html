@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--this line is to transfer section tag content to the base page-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-4">
+
+
+
+
+<!--              this div is for displaying message to browser-->
+<!--                we got message from HomeController class, use session variable of homecontroller classs  to get message-->
+<!--                we append the class  -->
+               <div class="mycard">
+                   <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+<!--                      To bring content of message object-->
+                       <p th:text="${session.message.content}"></p>
+<!--                       to remove message from the brwoser so that it displays only once-->
+                      <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+
+                   </div>
+
+
+                   <h2 class="text-center">Register Here!!</h2>
+
+<!--                   in the form we set url i.e /do_register and type of submit we set to post, to store data we declare an object as a user-->
+<!--                   object must be same as class we have declared-->
+                   <form novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}">
+                    <div class="mb-3">
+                        <label for="name"
+                               class="form-label">Name</label>
+
+<!--                        Last line of input tag i.e user.name , we use it to return data to the browser-->
+                        <input
+                                name="name"
+                                type="text"
+                               class="form-control"
+                                th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"
+                                id="name"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter Name"
+                               required
+
+                                th:value="${user.name}">
+<!--                          this div is to display errors but first append class in input tag-->
+                        <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}" >
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email"
+                               class="form-label">Email</label>
+
+                        <input
+                                name="email"
+                                type="email"
+                               class="form-control"
+                                th:classappend="${#fields.hasErrors('email')?'is-invalid':''}"
+                               id="email"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter Email"
+                               required
+                               th:value="${user.email}">
+                        <div th:each="e : ${#fields.errors('email')}" th:text="${e}" id="validationServer04Feedback" class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password"
+                               class="form-label">Password</label>
+
+                        <input  name="password"
+                                type="password"
+                               class="form-control"
+                                th:classappend="${#fields.hasErrors('password')?'is-invalid':''}"
+                               id="password"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter Password"
+                               required>
+                        <div th:each="e : ${#fields.errors('password')}" th:text="${e}"  class="invalid-feedback">
+                        </div>
+                    </div>
+<!--                     this is About -->
+                    <div class="form-group">
+                        <textarea name="aboutuser" th:value="${user.aboutuser}" placeholder="Enter About Yourself"  rows="6" class="form-control"></textarea>
+                    </div>
+<!--                   Terms and conditions agreement-->
+                    <div class="form-group form-check">
+                        <input type="checkbox"
+                        name="agreement"
+                        class="form-check-input"
+                        id="agreement">
+                        <label for="agreement"> Accept terms and conditions</label>
+                    </div>
+                    <div class="container2 text-center">
+                        <button type="submit" class="btn bg-primary text-white">
+                          Submit
+                        </button>
+
+                        <button type="reset" class="btn  text-white btn-warning">
+                          Reset
+                        </button>
+                    </div>
+
+                </form>
+               </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>
